@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ButtonModal from './ButtonModal';
+import ButtonModal from './Components/ButtonModal';
 import Callback from './Callback';
-import Modal from './Modal';
+import Modal from './Components/Modal';
 import Reatividade from './Reatividade';
 import StrictMode from './StrictMode';
 import Exercicio from './Exercicio';
