@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 
 export default function Produto({
