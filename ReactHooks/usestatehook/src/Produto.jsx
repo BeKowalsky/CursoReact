@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 
-export default function Produto({ dados }) {
-  const [products, setProducts] = useState({});
+export default function Produto({
+  dados,
+  soldOutProducts,
+  setSoldOutProducts,
+}) {
+  console.log(soldOutProducts);
 
   const handleClick = () => {
     const key = dados.nome;
-    products[key] = {
+    soldOutProducts[key] = {
       name: dados.nome,
       sold: !!dados.vendido,
       price: dados.preco,
     };
-    setProducts({ ...products });
+    setSoldOutProducts({ ...soldOutProducts });
   };
 
-  const vendido = products[dados.nome]?.sold === true;
+  const vendido = soldOutProducts[dados.nome]?.sold === true;
 
   return (
     <div
