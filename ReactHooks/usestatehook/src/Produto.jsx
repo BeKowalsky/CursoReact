@@ -6,8 +6,6 @@ export default function Produto({
   soldOutProducts,
   setSoldOutProducts,
 }) {
-  console.log(soldOutProducts);
-
   const handleClick = () => {
     const key = dados.nome;
     soldOutProducts[key] = {
