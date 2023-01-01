@@ -17,6 +17,8 @@ export default function Exercicio() {
   const [dados, setDados] = useState(null);
   const [carregando, setCarregando] = useState(null);
 
+  const [soldOutProducts, setSoldOutProducts] = useState({});
+
   async function handleClick(event) {
     setCarregando(true);
     const response = await fetch(
@@ -39,7 +41,13 @@ export default function Exercicio() {
       {carregando && (
         <img src={loader} alt="loader" width="50" className="mt-4" />
       )}
-      {!carregando && dados && <Produto dados={dados} />}
+      {!carregando && dados && (
+        <Produto
+          dados={dados}
+          soldOutProducts={soldOutProducts}
+          setSoldOutProducts={setSoldOutProducts}
+        />
+      )}
     </div>
   );
 }
