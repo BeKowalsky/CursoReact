@@ -27,14 +27,14 @@ export default function Exercicio() {
   }
 
   return (
-    <div>
+    <div className="flex justify-center flex-col items-center">
       <div className="mt-4 flex space-x-2">
         <Button onClick={handleClick}>Tablet</Button>
         <Button onClick={handleClick}>Smartphone</Button>
         <Button onClick={handleClick}>Notebook</Button>
       </div>
       {carregando && <p className="mt-2">Carregando...</p>}
-      {dados && <Produto dados={dados} />}
+      {!carregando && dados && <Produto dados={dados} />}
     </div>
   );
 }
