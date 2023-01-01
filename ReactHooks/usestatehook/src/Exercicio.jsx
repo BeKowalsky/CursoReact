@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Produto from './Produto';
+import loader from './assets/img/loader.jpeg';
 
 const Button = ({ children, onClick }) => {
   return (
@@ -22,19 +23,23 @@ export default function Exercicio() {
       `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
     );
     const json = await response.json();
-    setDados(json);
-    setCarregando(false);
+    setTimeout(() => {
+      setDados(json);
+      setCarregando(false);
+    }, '1000');
   }
 
   return (
-    <div>
+    <div className="flex justify-center flex-col items-center">
       <div className="mt-4 flex space-x-2">
         <Button onClick={handleClick}>Tablet</Button>
         <Button onClick={handleClick}>Smartphone</Button>
         <Button onClick={handleClick}>Notebook</Button>
       </div>
-      {carregando && <p className="mt-2">Carregando...</p>}
-      {dados && <Produto dados={dados} />}
+      {carregando && (
+        <img src={loader} alt="loader" width="50" className="mt-4" />
+      )}
+      {!carregando && dados && <Produto dados={dados} />}
     </div>
   );
 }
