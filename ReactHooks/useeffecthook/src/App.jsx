@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Exercicio from './Exercicio';
 import Produto from './Produto';
 import VendaDeNote from './VendaDeNote';
 
@@ -17,9 +18,10 @@ function App() {
 
   return (
     <div>
-      <VendaDeNote />
+      {/* <VendaDeNote /> */}
       {/* {ativo && <Produto />}
       <button onClick={() => setAtivo(!ativo)}>Ativar</button> */}
+      <Exercicio />
     </div>
   );
 }
