@@ -8,8 +8,11 @@ export default function Item({ product }) {
       fetch(`https://ranekapi.origamid.dev/json/api/produto/${product}`)
         .then((response) => response.json())
         .then((json) => setDados(json));
+    } else {
+      setDados(null);
     }
   }, [product]);
+
   if (dados === null) return null;
   return (
     <div>

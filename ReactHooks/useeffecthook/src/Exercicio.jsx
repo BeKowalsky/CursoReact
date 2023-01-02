@@ -10,6 +10,7 @@ import Item from './Item';
 
 export default function Exercicio() {
   const [product, setProduct] = useState(null);
+  const [cleanLocalStorage, setCleanLocalStorage] = useState(false);
 
   React.useEffect(() => {
     const productLocal = window.localStorage.getItem('product');
@@ -18,18 +19,28 @@ export default function Exercicio() {
 
   React.useEffect(() => {
     if (product !== null) window.localStorage.setItem('product', product);
-  }, [product]);
+    if (cleanLocalStorage) window.localStorage.removeItem('product');
+  }, [product, cleanLocalStorage]);
 
   function handleClick({ target }) {
     setProduct(target.innerText.toLowerCase());
   }
+
+  function clearLocalStorage() {
+    setCleanLocalStorage(!cleanLocalStorage);
+    setProduct(null);
+  }
+
   return (
     <div>
       <h1 className="capitalize">Preferência: {product}</h1>
       <button onClick={handleClick} className="mr-5">
         Notebook
       </button>
-      <button onClick={handleClick}>Smartphone</button>
+      <button onClick={handleClick} className="mr-5">
+        Smartphone
+      </button>
+      <button onClick={clearLocalStorage}>Limpar LocalStorage</button>
       <Item product={product} />
     </div>
   );
