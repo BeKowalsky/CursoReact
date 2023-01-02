@@ -14,7 +14,7 @@ function App() {
   //   document.title = 'Total: ' + contar;
   // }, [contar]);
 
-  const [ativo, setAtivo] = useState(false);
+  //const [ativo, setAtivo] = useState(false);
 
   return (
     <div>
