@@ -18,10 +18,10 @@ function App() {
 
   return (
     <div>
-      {/* <VendaDeNote /> */}
+      <VendaDeNote />
       {/* {ativo && <Produto />}
       <button onClick={() => setAtivo(!ativo)}>Ativar</button> */}
-      <Exercicio />
+      {/* <Exercicio /> */}
     </div>
   );
 }
