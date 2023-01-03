@@ -1,0 +1,47 @@
+import React, { useState } from 'react';
+
+const set1 = new Set();
+const set2 = new Set();
+
+const Produto = () => {
+  const t1 = performance.now();
+  const func1 = () => {
+    console.log('teste');
+  };
+  console.log('Função 1: ' + (performance.now() - t1));
+
+  const t2 = performance.now();
+  const func2 = React.useCallback(() => {
+    console.log('teste 2');
+  }, []);
+  console.log('Função 2: ' + (performance.now() - t2));
+
+  set1.add(func1);
+  set2.add(func2);
+
+  console.log(set1);
+  console.log(set2);
+
+  return (
+    <div>
+      <p onClick={func1}>Produto 1</p>
+      <p onClick={func2}>Produto 2</p>
+    </div>
+  );
+};
+
+export default function UseCallbackAula() {
+  const [contar, setContar] = useState(0);
+
+  return (
+    <div>
+      <button
+        onClick={() => setContar(contar + 1)}
+        style={{ marginTop: '50px' }}
+      >
+        {contar}
+      </button>
+      <Produto />
+    </div>
+  );
+}
