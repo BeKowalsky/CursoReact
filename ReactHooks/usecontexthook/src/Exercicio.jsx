@@ -17,23 +17,36 @@ export default function Exercicio() {
   };
 
   const handleAddProduct = () => {
-    dados.setProduto([
-      ...dados.produto,
-      {
-        id: 'ferrari-1',
-        nome: 'Ferrari',
-        preco: '225000',
-        descricao: 'Veloz, Confortável, Prazeroso',
-      },
-    ]);
+    if (dados.produto !== null) {
+      dados.setProduto([
+        ...dados.produto,
+        {
+          id: 'ferrari-1',
+          nome: 'Ferrari',
+          preco: '225000',
+          descricao: 'Veloz, Confortável, Prazeroso',
+        },
+      ]);
+    } else {
+      dados.setProduto([
+        {
+          id: 'ferrari-1',
+          nome: 'Ferrari',
+          preco: '225000',
+          descricao: 'Veloz, Confortável, Prazeroso',
+        },
+      ]);
+    }
   };
   return (
     <div style={{ marginTop: '50px' }}>
       <button onClick={handleClick}>Limpar Carrinho</button>
-      <button onClick={handleAddProduct}>Adicionar Ferrari ao carrinho</button>
+      <button onClick={handleAddProduct} style={{ marginLeft: '15px' }}>
+        Adicionar Ferrari ao carrinho
+      </button>
       <ul>
-        {dados.produto?.map((produto) => (
-          <li key={produto.id}>
+        {dados.produto?.map((produto, index) => (
+          <li key={index}>
             <h2>{produto.nome}</h2>
             <p>{produto.descricao}</p>
             <p>R${produto.preco}</p>
