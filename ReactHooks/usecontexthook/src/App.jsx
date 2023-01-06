@@ -3,6 +3,8 @@ import Produto from './Produto';
 import UserContext from './UserContext';
 import { GlobalStorage } from './GlobalContext';
 import ProdutoDois from './ProdutoDois';
+import Exercicio from './Exercicio';
+import { ExercicioStorage } from './ExercicioContext';
 
 function App() {
   console.log(UserContext);
@@ -14,6 +16,9 @@ function App() {
       <GlobalStorage>
         <ProdutoDois />
       </GlobalStorage>
+      <ExercicioStorage>
+        <Exercicio />
+      </ExercicioStorage>
     </>
   );
 }
