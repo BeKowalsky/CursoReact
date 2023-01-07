@@ -6,11 +6,11 @@
 // e exponha essa função no contexto global
 
 import React from 'react';
+import AddMercedes from './AddMercedes';
 import { ExercicioContext } from './ExercicioContext';
 
 export default function Exercicio() {
   const dados = React.useContext(ExercicioContext);
-  console.log(dados);
 
   const handleClick = () => {
     dados.limparDados();
@@ -44,6 +44,7 @@ export default function Exercicio() {
       <button onClick={handleAddProduct} style={{ marginLeft: '15px' }}>
         Adicionar Ferrari ao carrinho
       </button>
+      <AddMercedes />
       <ul>
         {dados.produto?.map((produto, index) => (
           <li key={index}>
